@@ -1,18 +1,21 @@
 import { LightningElement } from 'lwc';
 
 export default class Publisher extends LightningElement {
-    handleClick(){
-        console.log('firing event');
-        this.dispatchEvent(
-            new CustomEvent("message", {
-                detail: {
-                    message: 'hello'
-                },
-                bubbles: true,
-                composed: true
-            })
-        );
 
+    value;
+
+    handleChange(event){
+        this.value = event.target.value;
+    }
+
+    handleClick(){
+        let event = new CustomEvent('message',{
+            detail: {
+                value: this.value
+            },
+            bubbles:true
+        });
+        this.dispatchEvent(event);
     }
 
 }

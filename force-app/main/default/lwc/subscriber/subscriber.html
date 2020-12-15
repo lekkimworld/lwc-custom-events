@@ -1,3 +1,18 @@
 <template>
-    
+  <lightning-card title="publisher" icon-name="standard:lead_list">
+    <div class="slds-grid slds-wrap slds-p-around_x-small slds-align_absolute-center">
+        <div class="slds-col slds-size_1-of-3">
+            <template if:true={showItemList}>
+                <ol class="slds-list_ordered">
+                    <template for:each={itemList} for:item="item" for:index="i">
+                        <li key={item.i}>{item}</li>
+                    </template>
+                </ol>        
+            </template>
+            <template if:false={showItemList}>
+                <p>Listening...</p>
+            </template>
+        </div>
+    </div>
+</lightning-card>
 </template>
