@@ -2,14 +2,13 @@ import { LightningElement, track } from 'lwc';
 
 export default class Subscriber extends LightningElement {
 
-   @track itemList = [];
+    @track itemList = [];
 
     connectedCallback(){
-        this.handleMessage = this.handleMessage.bind(this);
         window.addEventListener('message',this.handleMessage, false);
     }
 
-    handleMessage(event){
+    handleMessage = (event) => {
         let detail = event.detail.value;
         this.itemList.push(detail);
     }
