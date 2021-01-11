@@ -1,11 +1,11 @@
-import { LightningElement, track } from 'lwc';
+import { LightningElement , track } from 'lwc';
 
 export default class Subscriber extends LightningElement {
 
     @track itemList = [];
 
     connectedCallback(){
-        window.addEventListener('message',this.handleMessage, false);
+        window.addEventListener('message', this.handleMessage, false);
     }
 
     handleMessage = (event) => {
@@ -13,8 +13,11 @@ export default class Subscriber extends LightningElement {
         this.itemList.push(detail);
     }
 
+    disconnectedCallback(){
+        window.removeEventListener('message', this.handleMessage, false);
+    }
+
     get showItemList(){
         return this.itemList.length >= 1;
     }
-
 }
