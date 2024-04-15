@@ -1,15 +1,11 @@
 {
   "orgName": "stephan.garcia company",
   "edition": "Developer",
-  "features": [],
+  "features": ["EnableSetPasswordInApi"],
+  "country": "US",
   "settings": {
     "lightningExperienceSettings": {
       "enableS1DesktopEnabled": true
-    },
-    "securitySettings": {
-      "passwordPolicies": {
-        "enableSetPasswordInApi": true
-      }
     },
     "mobileSettings": {
       "enableS1EncryptedStoragePref2": false
